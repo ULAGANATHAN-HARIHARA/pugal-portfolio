@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --canvas: #0b0d0d;
+  --surface: #111413;
+  --surface-2: #151817;
+  --ink: #e9e6de;
+  --muted: #92958f;
+  --dim: #686b66;
+  --line: #343733;
+  --signal: #f04a35;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--canvas);
+  scrollbar-width: thin;
+  scrollbar-color: #41443f var(--canvas);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 72% 15%, rgba(240, 74, 53, 0.045), transparent 22rem),
+    radial-gradient(circle at 20% 82%, rgba(255, 255, 255, 0.025), transparent 24rem),
+    linear-gradient(115deg, #0b0d0d 0%, #0d0f0f 48%, #0a0c0c 100%);
+  color: var(--ink);
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.045;
+  background-image:
+    radial-gradient(circle at 20% 20%, #fff 0 0.6px, transparent 0.8px),
+    radial-gradient(circle at 70% 60%, #fff 0 0.5px, transparent 0.8px),
+    radial-gradient(circle at 40% 80%, #fff 0 0.5px, transparent 0.8px);
+  background-size: 13px 13px, 17px 17px, 19px 19px;
+  mix-blend-mode: screen;
+}
+
+.font-sans {
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+}
+
+.font-mono {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #41443f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b5f59;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 4px;
+}
+
+/* subtle technical grid used by the page without becoming a dominant pattern */
+.trace-grid {
+  background-image:
+    linear-gradient(rgba(160, 164, 156, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(160, 164, 156, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* TRACE MOTION */
+.trace-progress {
+  transition: stroke-dashoffset 120ms linear;
+}
+
+.trace-signal {
+  filter: drop-shadow(0 0 7px rgba(240, 74, 53, 0.32));
+}
+
+.trace-node-active {
+  animation: trace-node-breathe 1.8s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.trace-node-pulse {
+  animation: trace-node-pulse 1.8s ease-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes trace-node-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes trace-node-pulse {
+  0% { opacity: .55; transform: scale(.5); }
+  70%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .trace-progress,
+  .trace-signal,
+  .trace-node-active,
+  .trace-node-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
