@@ -158,23 +158,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       ====================================================== */}
       <CaseSection number="04" label="SYSTEM">
         <div className="border-t border-[#363936]">
-          {project.system.map((item, index) => (
-            <div
-              key={item}
-              className="group flex items-center justify-between border-b border-[#363936] py-7 md:py-9"
-            >
-              <div className="flex items-center gap-7">
-                <span className="font-mono text-[9px] tracking-[0.12em] text-[#686B66]">
-                  0{index + 1}
-                </span>
-                <span className="text-[clamp(1.8rem,4vw,4rem)] uppercase leading-none tracking-[-0.045em]">
-                  {item}
-                </span>
-              </div>
-
-              <span className="h-2.5 w-2.5 rounded-full border border-[#555952] transition-all duration-300 group-hover:border-[#F04A35] group-hover:bg-[#F04A35]" />
-            </div>
-          ))}
+          <div className="border-b border-[#363936] py-7 md:py-9">
+            <p className="max-w-4xl text-base leading-8 text-[#92958F] md:text-lg">
+              {project.system}
+            </p>
+          </div>
         </div>
       </CaseSection>
 
