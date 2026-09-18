@@ -141,17 +141,9 @@ Deployment
 
 The project is intended for deployment on Vercel, Netlify, or another platform capable of hosting a Next.js application.
 
-Live demo:
-
-ADD LIVE DEMO URL
-
-Repository:
-
-ADD PUBLIC GITHUB REPOSITORY URL
-
 Credits
 
-Built by Pugal.
+Built by Hari.
 
 The portfolio is intended to communicate a simple idea:
 
