@@ -113,23 +113,6 @@ Create a production build:
 
 npm run build
 
-Demo content
-
-This repository currently contains demo/template content in some project and contact fields.
-
-Before presenting the site as a personal portfolio:
-
-Replace demo project content with verified personal projects.
-
-Verify career, education, research, and internship wording.
-
-Replace placeholder GitHub and LinkedIn URLs.
-
-Add the final resume.
-
-Replace the placeholder production URL in app/layout.tsx.
-
-Add only genuine achievements, metrics, employers, and project outcomes.
 
 Originality
 
